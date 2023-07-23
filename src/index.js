@@ -1,7 +1,7 @@
 import "./styles.css";
 
 let flag = 0;
-let movie = [];
+
 let page = 1;
 let Name;
 const result = () => {
@@ -25,23 +25,18 @@ const result = () => {
         </div>
         </div>
         <div class="reaction">
+        <div class="commentArea">
         <label>Rating:</label>
-        <select id=${x.imdbID}>
-        <option value=1>1</options>
-        <option value=2>2</options>
-        <option value=3>2</options>
-        <option value=4>4</options>
-        <option value=5>5</options>
-        <option value=6>6</options>
-        <option value=7>7</options>
-        <option value=8>8</options>
-        <option value=9>9</options>
-        <option value=10>10</options>
-        </select>
-        <div class="comment">
-        <label>Comment</label>
-        <textarea id=${x.imbID}></textarea>
+        <input class="select" id=${x.imdbID}>
+       
+        </input>
+
         </div>
+        <div class="commentArea">
+        <label>Comment</label>
+        <textarea class="comment" id=${x.imdbID}></textarea>
+        </div>
+        <button class="save" id=${x.imdbID}>save</button>
         </div>
         </div>
       `;
@@ -53,7 +48,60 @@ const result = () => {
           details(e);
         });
       }
+      let saveBtn = document.getElementsByClassName("save");
+      for (let itr of saveBtn) {
+        itr.addEventListener("click", saveResponse);
+      }
+      let movies = JSON.parse(localStorage.getItem("movieList"));
+      console.log(movies);
+      let rating = document.getElementsByClassName("select");
+      let comment = document.getElementsByClassName("comment");
+      for (let itr of rating) {
+        if (movies !== null) {
+          for (const x of movies) {
+            if (x.id === itr.id) {
+              console.log(x.rating);
+              itr.value = x.rating;
+            }
+          }
+        }
+      }
+      for (let itr of comment) {
+        if (movies !== null) {
+          for (const x of movies) {
+            if (x.id === itr.id) {
+              itr.value = x.comment;
+            }
+          }
+        }
+      }
     });
+};
+const saveResponse = (e) => {
+  let val = e.target.id;
+  let movies = JSON.parse(localStorage.getItem("movieList"));
+  console.log(movies);
+  if (movies === null) {
+    movies = [];
+  }
+  let newMovie = {};
+  newMovie.id = val;
+  let rating = document.getElementsByClassName("select");
+  for (let itr of rating) {
+    if (itr.id === val) {
+      newMovie.rating = itr.value;
+    }
+  }
+  let comment = document.getElementsByClassName("comment");
+  for (let itr of comment) {
+    console.log("jjjjjjjj");
+    if (itr.id === val) {
+      console.log(itr.value);
+      newMovie.comment = itr.value;
+    }
+  }
+  movies.push(newMovie);
+  localStorage.setItem("movieList", JSON.stringify(movies));
 };
 const details = (e) => {
   let val = e.currentTarget.id;
