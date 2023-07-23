@@ -1,0 +1,76 @@
+body {
+  font-family: sans-serif;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: center;
+}
+.movie {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 50px;
+  margin-top: 80px;
+}
+.movieCard {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  box-shadow: 2px 2px 2px 2px #434343;
+  border-radius: 8px;
+}
+.movieName {
+  padding: 10px;
+}
+.movieName p {
+  font-weight: 700;
+}
+.reaction {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+.reaction textarea {
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border-width: 3px;
+}
+.reaction select {
+  border-radius: 8px;
+  border-width: 3px;
+}
+.comment {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+.details {
+  padding: 10px;
+}
+#bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Height of the footer */
+  background: #6cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px; /* Height of the footer */
+  background: #6cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
