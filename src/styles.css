@@ -7,18 +7,31 @@ body {
   flex-direction: column;
   width: fit-content;
   align-items: center;
+  justify-items: center;
+}
+#searchbar {
+  height: 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  border-width: 3px;
+}
+#search {
+  margin-left: 5px;
+  border-radius: 8px;
+  height: 30px;
 }
 .movie {
   display: flex;
   align-items: center;
   width: fit-content;
   margin-bottom: 50px;
-  margin-top: 80px;
 }
 .movieCard {
   display: flex;
+  flex-direction: column;
   margin-top: 20px;
   align-items: center;
+  justify-content: center;
   box-shadow: 2px 2px 2px 2px #434343;
   border-radius: 8px;
 }
@@ -31,6 +44,7 @@ body {
 .reaction {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 5px;
   padding: 5px;
   margin-left: 10px;
@@ -41,12 +55,16 @@ body {
   border-radius: 8px;
   border-width: 3px;
 }
-.reaction select {
+.save {
+  margin-top: 5px;
+  width: 50px;
+}
+.reaction .select {
   border-radius: 8px;
   border-width: 3px;
 }
-.comment {
-  margin-top: 30px;
+.commentArea {
+  margin-top: 10px;
   display: flex;
   align-items: center;
 }
@@ -67,7 +85,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 30px; /* Height of the footer */
+  height: 50px; /* Height of the footer */
   background: #6cf;
   display: flex;
   align-items: center;
